@@ -1,0 +1,30 @@
+events {}
+
+http {
+  upstream web {
+    server [localhost-ip]:[web-port];
+  }
+
+  upstream api {
+    server [localhost-ip]:[api-port];
+  }
+
+  server {
+    listen       80;
+    server_name  127.0.0.1;
+
+    location /api/ {
+      proxy_pass        http://api;
+      proxy_set_header  Host $host;
+      proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header  X-Forwarded-Proto $scheme;
+      proxy_set_header  X-Forwarded-Ssl on;
+      proxy_set_header  X-Forwarded-Port $server_port;
+      proxy_set_header  X-Forwarded-Host $host;
+    }
+
+    location / {
+      proxy_pass        http://web;
+    }
+  }
+}
