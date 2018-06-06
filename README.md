@@ -5,16 +5,16 @@ Simulate production environment for debug efficiently by launching nginx as load
 
 ## Usage
 
-Customize your nginx config.
-
 ```
 cp nginx.config.bkup nginx.conf
 ```
 
-Build docker image and run.
+Run nginx container with your customized configuration.
 
 ```
-docker build lb && docker run -p 80:80 lb
+docker run -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf -p 80:80 nginx
 ```
 
 Now two servers are serving under the same domain.
+
+**!!Important!! Everytime you changed `nginx.conf`, you should restart docker container.**
