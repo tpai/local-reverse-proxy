@@ -17,4 +17,4 @@ docker run -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf -p 80:80 nginx
 
 Now two servers are serving under the same domain.
 
-**!!Important!! Everytime you changed `nginx.conf`, you should restart docker container.**
+**P.S. Everytime you changed `nginx.conf`, you should restart docker container.**
