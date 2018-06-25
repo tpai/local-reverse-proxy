@@ -17,6 +17,6 @@ if hash docker 2>/dev/null; then
     nginx
   echo Done
 else
-  echo "Docker is not installed. (https://www.docker.com/community-edition)"
+  echo "Docker is not installed."
 fi
 

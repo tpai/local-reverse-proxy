@@ -1,20 +1,24 @@
 Local Load Balancer
 ===
 
-Simulate production environment for debug efficiently by launching nginx as load balancer over web and api server.
+Simulate production environment for debug efficiently by launching nginx as load balancer in front of web and api server.
 
 ## Usage
 
-```
-cp nginx.config.bkup nginx.conf
-```
+1. Install docker first. [[docker-ce](https://www.docker.com/community-edition)]
 
-Run nginx with your customized configuration.
+1. Customize your configuration.
 
-```
-./start.sh
-```
+    ```
+    cp nginx.config.bkup nginx.conf
+    ```
 
-Now two servers are serving under the same domain.
+1. Start nginx.
 
-**P.S. Everytime you changed `nginx.conf`, you should restart docker container.**
+    ```
+    ./start.sh
+    ```
+
+1. Now two servers are serving under the same domain.
+
+**P.S. Everytime you changed `nginx.conf`, must restart docker container.**
