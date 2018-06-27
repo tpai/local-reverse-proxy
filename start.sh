@@ -8,7 +8,7 @@ if lsof -Pi :80 -sTCP:LISTEN -t >/dev/null; then
   exit 1
 fi
 
-if hash docker 2>/dev/null; then
+if type -p docker &>/dev/null; then
   echo Starting nginx...
   docker run -d \
     -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf \
