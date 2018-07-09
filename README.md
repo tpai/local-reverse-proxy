@@ -1,7 +1,13 @@
-Local Load Balancer
+Local Reverse Proxy
 ===
 
-Simulate production environment for debug efficiently by launching nginx as load balancer in front of web and api server.
+Running nginx as reverse proxy in front of web and api server.
+
+## Feature
+
+* Support HTTPS by using [mkcert](https://github.com/FiloSottile/mkcert).
+* Redirect HTTP to HTTPS automatically.
+* Provide access log.
 
 ## Usage
 
@@ -19,6 +25,4 @@ Simulate production environment for debug efficiently by launching nginx as load
     ./start.sh
     ```
 
-1. Now two servers are serving under the same domain.
-
-**P.S. Everytime you changed `nginx.conf`, must restart docker container.**
+> P.S. Restart docker container everytime you change `nginx.conf`.
