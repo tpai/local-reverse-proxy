@@ -3,8 +3,8 @@
 rm -rf access.log
 touch access.log
 
-if lsof -Pi :80 -sTCP:LISTEN -t >/dev/null; then
-  echo Port 80 is already in use.
+if lsof -Pni :443 | grep LISTEN >/dev/null; then
+  echo Port 443 is already in use.
   exit 1
 fi
 
@@ -33,6 +33,7 @@ if type -p docker &>/dev/null; then
     -v $(pwd)/cert.pem:/root/cert.pem \
     -v $(pwd)/cert-key.pem:/root/cert-key.pem \
     -v $(pwd)/access.log:/root/access.log \
+    -p 80:80 \
     -p 443:443 \
     nginx
   echo Done.
