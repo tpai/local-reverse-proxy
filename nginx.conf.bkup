@@ -22,7 +22,9 @@ http {
     server_name         localhost;
     ssl_certificate     /root/cert.pem;
     ssl_certificate_key /root/cert-key.pem;
+
     access_log          /root/access.log;
+    error_log           /root/error.log;
 
     location /api/ {
       proxy_pass        http://api;
