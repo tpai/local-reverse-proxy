@@ -13,11 +13,7 @@ Running nginx as reverse proxy in front of web and api server.
 
 1. Install docker first. [[docker-ce](https://www.docker.com/community-edition)]
 
-1. Customize your configuration.
-
-    ```
-    cp nginx.config.bkup nginx.conf
-    ```
+1. Customize configuration in `src/` folder.
 
 1. Start nginx.
 
@@ -25,4 +21,4 @@ Running nginx as reverse proxy in front of web and api server.
     ./start.sh
     ```
 
-> P.S. Restart docker container everytime you change `nginx.conf`.
+> P.S. Restart container when you change config.
