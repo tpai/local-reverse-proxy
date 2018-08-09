@@ -30,6 +30,8 @@ if type -p docker &>/dev/null; then
   echo Starting nginx...
   docker run -d \
     -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf \
+    -v $(pwd)/src/location.conf:/etc/nginx/location.conf \
+    -v $(pwd)/src/upstream.conf:/etc/nginx/upstream.conf \
     -v $(pwd)/cert.pem:/root/cert.pem \
     -v $(pwd)/cert-key.pem:/root/cert-key.pem \
     -v $(pwd)/access.log:/root/access.log \

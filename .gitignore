@@ -1,4 +1,3 @@
-nginx.conf
 access.log
 error.log
 cert.pem
