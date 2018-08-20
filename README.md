@@ -7,7 +7,7 @@ Running nginx as reverse proxy in front of web and api server.
 
 * Support HTTPS by using [mkcert](https://github.com/FiloSottile/mkcert).
 * Redirect HTTP to HTTPS automatically.
-* Provide access log.
+* Provide access log and error log.
 
 ## Usage
 
@@ -22,3 +22,18 @@ Running nginx as reverse proxy in front of web and api server.
     ```
 
 > P.S. Restart container when you change config.
+
+The flow will look like this:
+
+```
+        User Traffic
+             |
+             |
+      +------v------+
+      |Reverse Proxy|
+      +-------------+
+             |
++-----+      |      +-----+
+| Web <--/*--+-/api-> API |
++-----+             +-----+
+```
