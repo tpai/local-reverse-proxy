@@ -21,9 +21,10 @@ fi
 if type -p mkcert &>/dev/null; then
   echo Create ssl certificate...
   mkcert -install
-  mkcert localhost 127.0.0.1 ::1
-  mv localhost+2.pem cert.pem
-  mv localhost+2-key.pem cert-key.pem
+  mkcert \
+    -cert-file cert.pem \
+    -key-file cert-key.pem \
+    localhost 127.0.0.1 ::1
 fi
 
 if type -p docker &>/dev/null; then
