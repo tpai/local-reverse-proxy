@@ -11,19 +11,13 @@ Running nginx as reverse proxy in front of web and api server.
 
 ## Usage
 
-1. Install docker first. [[docker-ce](https://www.docker.com/community-edition)]
-
-1. Customize configuration in `src/` folder.
-
-1. Start nginx.
+1. Install [[docker-ce](https://hub.docker.com/search/?type=edition&offering=community)]
+1. Start service
 
     ```
-    ./start.sh
+    sh start.sh
     ```
-
-> P.S. Restart container when you change config.
-
-The flow will look like this:
+1. System architecture:
 
 ```
         User Traffic
@@ -33,7 +27,15 @@ The flow will look like this:
       |Reverse Proxy|
       +-------------+
              |
-+-----+      |      +-----+
-| Web <--/*--+-/api-> API |
-+-----+             +-----+
++-----+      |          +-----+
+| Web <--/*--+-/api-----> API |
++-----+        /swagger +-----+
+               /assets
+               /docs
 ```
+
+1. Stop service
+
+    ```
+    sh stop.sh
+    ```
