@@ -13,8 +13,13 @@ if [[ "$(uname)" -ne "Darwin" ]]; then
   exit 1
 fi
 
+if [ ! -d "/Applications/Firefox.app" ]; then
+  brew cask install firefox
+fi
+
 if ! type -p mkcert &>/dev/null; then
   echo Install mkcert...
+  open -a /Applications/Firefox.app
   brew install mkcert nss
 fi
 
