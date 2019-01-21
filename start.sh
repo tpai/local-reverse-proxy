@@ -45,7 +45,7 @@ if type -p docker &>/dev/null; then
     -p 80:80 \
     -p 443:443 \
     --name local-reverse-proxy \
-    nginx
+    nginx:1-alpine
   echo Done.
 else
   echo "Docker is not installed."
